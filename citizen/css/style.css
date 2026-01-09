@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+}
+
+.card {
+  background: #fff;
+  width: 90%;
+  max-width: 380px;
+  padding: 30px 20px;
+  border-radius: 25px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.card img {
+  width: 160px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0;
+  color: #333;
+}
+
+p {
+  font-size: 14px;
+  color: #777;
+  margin: 10px 0 20px;
+}
+
+#googleLogin {
+  background: #db4437;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+#googleLogin img {
+  width: 20px;
+  height: 20px;
+}
+
+#googleLogin:hover {
+  background: #c23321;
+}
+
+small {
+  color: #aaa;
+  display: block;
+  margin-top: 10px;
+}

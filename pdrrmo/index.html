@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Pulse360</title>
+
+  <link rel="icon" type="image/png" href="./images/pulse.png" />
+
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <div class="login-container">
+    <img src="./images/logo.png" alt="Logo" class="logo">
+
+    <h2>Responder Portal</h2>
+    <p class="subtitle">Sign in to manage incidents</p>
+
+    <input type="email" id="username" placeholder="Email" required>
+
+    <input type="password" id="password" placeholder="Password" required>
+
+    <a href="#" id="forgotPassword" class="forgot">Forgot password?</a>
+
+    <button class="signin-btn" id="emailSignIn">Sign In</button>
+
+    <div class="divider">OR</div>
+
+    <button id="googleLogin" class="google-btn">
+      <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google Logo"/>
+      Sign in with Google
+    </button>
+  </div>
+
+  <script type="module" src="./script/script.js"></script>
+</body>
+</html>

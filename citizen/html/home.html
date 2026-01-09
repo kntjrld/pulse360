@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pulse360 - Citizen</title>
+
+  <link rel="icon" type="image/png" href="../images/pulse.png" />
+
+  <link rel="stylesheet" href="../css/home.css">
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="#">📋 My Reports</a>
+    <a href="#">👤 Profile</a>
+    <a href="#" id="logoutBtn">🚪 Logout</a>
+  </nav>
+
+  <main>
+    <h2 id="welcomeMessage"></h2>
+
+    <button class="report-btn" id="reportIncident">
+      🚨 Report Incident
+    </button>
+    
+    <input type="file" id="cameraInput" accept="image/*" capture="camera" style="display:none;">
+
+    <div id="locationInfo" style="margin-top: 15px;">
+      <p><strong>Status:</strong> Detecting location...</p>
+    </div>
+
+    <div id="image-preview" style="max-width: 100%; height: auto; margin-bottom: 10px;"></div>
+    
+    <button id="sendReportBtn" style="display:none;">Send Report</button>
+  </main>
+  
+  <div id="notificationPopup" class="notification-popup">
+      <p id="notificationText"></p>
+  </div>
+
+  <script type="module" src="../script/home.js"></script>
+</body>
+</html>

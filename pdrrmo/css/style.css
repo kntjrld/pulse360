@@ -1,0 +1,114 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #4a00e0, #8e2de2);
+}
+
+.login-container {
+  background: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #333;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.forgot {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  margin-bottom: 20px;
+  color: #555;
+  text-decoration: none;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+.signin-btn {
+  width: 100%;
+  padding: 12px;
+  background: #4a00e0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.signin-btn:hover {
+  background: #3700b3;
+}
+
+.divider {
+  margin: 10px 0;
+  font-size: 14px;
+  color: #aaa;
+  position: relative;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 40%;
+  height: 1px;
+  background: #ddd;
+}
+
+.divider::before { left: 0; }
+.divider::after { right: 0; }
+
+.google-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  background: #fff;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}

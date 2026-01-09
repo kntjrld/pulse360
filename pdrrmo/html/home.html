@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pulse360 - PDRRMO</title>
+
+  <link rel="icon" type="image/png" href="../images/pulse.png" />
+
+  <!-- your dashboard styles (relative to this file) -->
+  <link rel="stylesheet" href="../css/home.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+  <!-- Sidebar -->
+  <div id="sidebar">
+    <div class="sidebar-header">
+      <button id="toggle-btn" class="toggle-btn" aria-label="Toggle sidebar">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <h3 class="app-name">PDRRMO Dashboard</h3>
+    </div>
+
+    <ul class="sidebar-menu">
+      <li><a href="#" class="active"><img src="../images/dashboard.png" alt=""><span class="menu-text">Dashboard</span></a></li>
+      <li><a href="#"><img src="../images/reports.png" alt=""><span class="menu-text">Reports</span></a></li>
+      <li><a href="#"><img src="../images/settings.png" alt=""><span class="menu-text">Settings</span></a></li>
+    </ul>
+
+    <div class="sidebar-footer">
+      <li><a href="#" id="logout-btn"><img src="../images/logout.png" alt=""><span class="menu-text">Logout</span></a></li>
+    </div>
+  </div>
+
+  <!-- Overlay just for dimming -->
+  <div id="overlay"></div>
+
+  <!-- Map container -->
+  <div id="map-container">
+    <div id="dashmap"></div>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  <!-- Home JS -->
+  <script type="module" src="../script/home.js"></script>
+</body>
+</html>
