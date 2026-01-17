@@ -10,16 +10,15 @@ body {
 
 .card {
   background: #fff;
-  width: 90%;
-  max-width: 380px;
-  padding: 30px 20px;
+  width: 100%;
+  padding: 20px 20px;
   border-radius: 25px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
   text-align: center;
 }
 
 .card img {
-  width: 160px;
+  width: 120px;
   margin-bottom: 20px;
 }
 
@@ -38,10 +37,10 @@ p {
   background: #db4437;
   color: white;
   border: none;
-  padding: 12px 20px;
+  /* padding: 12px 20px; */
   width: 100%;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 10px;
@@ -52,6 +51,7 @@ p {
 }
 
 #googleLogin img {
+  margin-top: 20px;
   width: 20px;
   height: 20px;
 }
