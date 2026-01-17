@@ -76,6 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // --- Initialize Leaflet Map ---
   let map;
+  let hasIncidents = false;
   try {
     if (typeof L === "undefined") {
       console.error("Leaflet (L) is not available. Is leaflet.js loaded?");
@@ -86,6 +87,9 @@ document.addEventListener("DOMContentLoaded", () => {
         maxZoom: 19,
         attribution: "© OpenStreetMap contributors",
       }).addTo(map);
+
+      // initial animation
+      document.getElementById('searching-animation').style.display = 'block';
 
       // optional: testing marker
       // L.marker([13.22, 120.60]).addTo(map).bindPopup("Mamburao, Occidental Mindoro").openPopup();
@@ -117,6 +121,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           // optional: automatically open popup
           marker.openPopup();
+
+          // hide search animation
+          if (!hasIncidents) {
+            hasIncidents = true;
+            document.getElementById('searching-animation').style.display = 'none';
+          }
         }
       });
     });
