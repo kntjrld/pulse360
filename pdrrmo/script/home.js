@@ -1,7 +1,6 @@
 // home.js (Responder Web App with real-time reports)
-import { db } from "./firebase-config.js";
+import { db, auth } from "/config/firebase-config.js";
 import { collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
-import { auth } from "./firebase-config.js";
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 document.addEventListener("DOMContentLoaded", () => {

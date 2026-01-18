@@ -1,5 +1,5 @@
 // script.js (for the login page)
-import { auth, provider } from "./firebase-config.js";
+import { auth, provider } from "/config/firebase-config.js";
 import { signInWithPopup, onAuthStateChanged, setPersistence, browserSessionPersistence, browserLocalPersistence } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 // Check authentication state to redirect the user if they're already logged in

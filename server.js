@@ -20,11 +20,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files for citizen module
+// modules
 app.use('/citizen', express.static(path.join(__dirname, 'citizen')));
-
-// Serve static files for pdrrmo module
 app.use('/pdrrmo', express.static(path.join(__dirname, 'pdrrmo')));
+app.use('/config', express.static(path.join(__dirname, 'config')));
 
 // Root route - serve citizen login page
 app.get('/', (req, res) => {

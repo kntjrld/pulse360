@@ -1,6 +1,6 @@
 // home.js (for the dashboard)
 console.log("home.js loaded");
-import { auth, db, storage } from "./firebase-config.js";
+import { auth, db, storage } from "/config/firebase-config.js";
 import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
