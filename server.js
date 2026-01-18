@@ -4,14 +4,13 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 
-// Load environment variables
+// env config
 dotenv.config();
 
-// Get __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Initialize Express app
+// Initialize
 const app = express();
 const PORT = process.env.PORT || 3000;
 
@@ -25,17 +24,14 @@ app.use('/citizen', express.static(path.join(__dirname, 'citizen')));
 app.use('/pdrrmo', express.static(path.join(__dirname, 'pdrrmo')));
 app.use('/config', express.static(path.join(__dirname, 'config')));
 
-// Root route - serve citizen login page
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'citizen', 'index.html'));
 });
 
-// Health check endpoint
 app.get('/health', (req, res) => {
     res.json({ status: 'OK', message: 'Pulse360 server is running' });
 });
 
-// Error handling middleware
 app.use((err, req, res, next) => {
     console.error(err.stack);
     res.status(500).json({ 
@@ -44,12 +40,10 @@ app.use((err, req, res, next) => {
     });
 });
 
-// 404 handler
 app.use((req, res) => {
     res.status(404).json({ error: 'Route not found' });
 });
 
-// Start server
 app.listen(PORT, () => {
     console.log(`Pulse360 server is running on http://localhost:${PORT}`);
     console.log(`Citizen module: http://localhost:${PORT}/citizen`);
