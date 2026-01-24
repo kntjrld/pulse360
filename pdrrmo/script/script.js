@@ -1,20 +1,20 @@
 import { auth, provider } from "/config/firebase-config.js";
-import { 
-  signInWithPopup, 
-  signInWithEmailAndPassword, 
-  sendPasswordResetEmail 
+import {
+  signInWithPopup,
+  signInWithEmailAndPassword
 } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 
 async function redirectIfAdmin(user) {
   const tokenResult = await user.getIdTokenResult(true);
 
   console.log("Firebase ID Token:", tokenResult.token);
-  await navigator.clipboard.writeText(tokenResult.token);
+  // await navigator.clipboard.writeText(tokenResult.token);
 
   if (tokenResult.claims.admin) {
+    showNotif("Login successful! Redirecting...", "success");
     window.location.href = "./html/home.html";
   } else {
-    alert("Access denied. Admins only.");
+    showNotif("Access denied. Admins only.", "error");
     await auth.signOut();
   }
 }
@@ -25,7 +25,7 @@ document.getElementById("googleLogin").addEventListener("click", async () => {
     const result = await signInWithPopup(auth, provider);
     await redirectIfAdmin(result.user);
   } catch (error) {
-    alert("Google login failed: " + error.message);
+    showNotif("Google login failed: " + error.message, "error");
   }
 });
 
@@ -38,25 +38,38 @@ document.getElementById("emailSignIn").addEventListener("click", async () => {
     const result = await signInWithEmailAndPassword(auth, email, password);
     await redirectIfAdmin(result.user);
   } catch (error) {
-    alert("Email login failed: " + error.message);
+    showNotif("Email login failed: " + error.message, "error");
   }
 });
 
 // Forgot Password
-document.getElementById("forgotPassword").addEventListener("click", (e) => {
+document.getElementById("forgotPassword").addEventListener("click", async (e) => {
   e.preventDefault();
-  const email = document.getElementById("username").value;
 
+  const email = document.getElementById("username").value;
   if (!email) {
-    alert("Please enter your email first.");
+    showNotif("Please enter your email address.", "error");
     return;
   }
 
-  sendPasswordResetEmail(auth, email)
-    .then(() => {
-      alert("Password reset email sent to " + email);
-    })
-    .catch((error) => {
-      alert("Error: " + error.message);
+  try {
+    const res = await fetch("/api/admin/admin-reset-password", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email }),
     });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      showNotif("Password reset failed: " + data.message, "error");
+      return;
+    }
+
+    showNotif("Password reset email sent.", "success");
+  } catch (err) {
+    showNotif("Server error: " + err.message, "error");
+  }
 });

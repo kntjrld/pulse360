@@ -11,19 +11,4 @@ admin.initializeApp({
   }),
 });
 
-/**const email = "kntjrld@gmail.com";
-
-async function addAdmin() {
-  const user = await admin.auth().getUserByEmail(email);
-
-  await admin.auth().setCustomUserClaims(user.uid, {
-    admin: true,
-  });
-
-  console.log(`${email} is now an admin`);
-  process.exit();
-}
-
-addAdmin().catch(console.error);**/
-
 export default admin;
