@@ -81,11 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("User location:", userLocation);
 
         if (!userLocation) {
-            alert("Please wait for your location to be detected.");
+            showNotif("Location not detected yet.", "error");
             return;
         }
         if (!file) {
-            alert("Please capture an image before sending a report.");
+            showNotif("No image captured.", "error");
             return;
         }
 
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         await addDoc(collection(db, "reports"), report);
         console.log("Report added to Firestore:", report);
-        alert("Report sent successfully! Thank you.");
+        showNotif("Report submitted successfully!", "success");
 
         cameraInput.value = "";
         imagePreview.innerHTML = "";
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     } catch (err) {
         console.error("Error submitting report:", err);
-        alert("Failed to submit report. Check console for details.");
+        showNotif("Failed to submit report.", "error");
     }
 });
 
@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
             })
             .catch((error) => {
                 console.error("Logout error:", error);
-                alert("Logout failed. Please try again.");
+                showNotif("Logout failed: " + error.message, "error");
             });
     });
 });

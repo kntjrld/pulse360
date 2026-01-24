@@ -17,20 +17,20 @@ document.addEventListener('DOMContentLoaded', () => {
     if (googleLoginBtn) {
         googleLoginBtn.addEventListener('click', async () => {
             // Determine persistence based on the checkbox
-            const persistence = stayLoggedInCheckbox.checked 
-                ? browserLocalPersistence 
+            const persistence = stayLoggedInCheckbox.checked
+                ? browserLocalPersistence
                 : browserSessionPersistence;
-            
+
             try {
                 // Set the persistence first
                 await setPersistence(auth, persistence);
-                
+
                 // Then sign in with Google
                 await signInWithPopup(auth, provider);
-                
+
             } catch (error) {
                 console.error("Google sign-in error:", error);
-                alert("Login failed: " + error.message);
+                showNotif("Login failed: " + error.message, "error");
             }
         });
     }
