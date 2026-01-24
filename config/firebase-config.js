@@ -4,13 +4,13 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/11.0.1/firebase
 import { getStorage } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-storage.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCZXlxZRjTKgdIGiIqugmt0YAv99I9Vp78",
-  authDomain: "pulse360-50a26.firebaseapp.com",
-  projectId: "pulse360-50a26",
-  storageBucket: "pulse360-50a26.firebasestorage.app",
-  messagingSenderId: "91768065800",
-  appId: "1:91768065800:web:aa6c61d0055b3888ffa6bd",
-  measurementId: "G-BJGGQHWV8Q"
+  apiKey: "AIzaSyBKaPbT9LeaejC5-SKiKQnq9KmqtksNHo8",
+  authDomain: "pulse360-37249.firebaseapp.com",
+  projectId: "pulse360-37249",
+  storageBucket: "pulse360-37249.firebasestorage.app",
+  messagingSenderId: "592210834966",
+  appId: "1:592210834966:web:ef2b2dd68aa254cd456737",
+  measurementId: "G-VJFYB40N88"
 };
 
 const app = initializeApp(firebaseConfig);

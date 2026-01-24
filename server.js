@@ -3,6 +3,7 @@ import cors from 'cors';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
+import adminRoutes from "./config/admin.js";
 
 // env config
 dotenv.config();
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // modules
+app.use("/api/admin", adminRoutes);
 app.use('/citizen', express.static(path.join(__dirname, 'citizen')));
 app.use('/pdrrmo', express.static(path.join(__dirname, 'pdrrmo')));
 app.use('/config', express.static(path.join(__dirname, 'config')));
