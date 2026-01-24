@@ -4,33 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login - Pulse360</title>
+  <link rel="icon" type="image/png" href="./images/pulse.png">
 
-  <link rel="icon" type="image/png" href="./images/pulse.png" />
-
-  <link rel="stylesheet" href="./css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="login-container">
-    <img src="./images/logo.png" alt="Logo" class="logo">
+<body class="bg-gradient-to-br from-gray-50 to-indigo-100 flex items-center justify-center min-h-screen font-sans">
 
-    <h2>Responder Portal</h2>
-    <p class="subtitle">Sign in to manage incidents</p>
+  <div class="bg-white shadow-xl rounded-2xl p-8 max-w-sm w-full text-center animate-fadeIn">
+    <img src="./images/logo.png" alt="Logo" class="w-20 mx-auto mb-4">
 
-    <input type="email" id="username" placeholder="Email" required>
+    <h2 class="text-2xl font-bold text-gray-800 mb-2">Responder Portal</h2>
+    <p class="text-gray-600 mb-6">Sign in to manage incidents</p>
 
-    <input type="password" id="password" placeholder="Password" required>
+    <input type="email" id="username" placeholder="Email" required
+      class="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
 
-    <a href="#" id="forgotPassword" class="forgot">Forgot password?</a>
+    <input type="password" id="password" placeholder="Password" required
+      class="w-full mb-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
 
-    <button class="signin-btn" id="emailSignIn">Sign In</button>
+    <a href="#" id="forgotPassword" class="text-sm text-indigo-600 hover:underline mb-4 inline-block">Forgot password?</a>
 
-    <div class="divider">OR</div>
-
-    <button id="googleLogin" class="google-btn">
-      <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google Logo"/>
-      Sign in with Google
+    <button id="emailSignIn" class="w-full bg-indigo-600 text-white font-medium py-2 rounded-lg shadow hover:bg-indigo-700 transition mb-4">
+      Sign In
     </button>
+
+    <div class="flex items-center my-4 text-gray-400">
+      <span class="flex-grow border-t border-gray-300"></span>
+      <span class="mx-2 text-sm">OR</span>
+      <span class="flex-grow border-t border-gray-300"></span>
+    </div>
+
+    <button id="googleLogin" class="flex items-center justify-center gap-3 bg-white border border-gray-300 rounded-lg px-4 py-2 w-full shadow hover:shadow-md transition hover:bg-gray-50">
+      <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google Logo" class="w-6 h-6">
+      <span class="font-medium text-gray-700">Sign in with Google</span>
+    </button>
+
+    <p class="mt-6 text-xs text-gray-400">© 2026 Pulse360. All rights reserved.</p>
   </div>
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease forwards;
+    }
+  </style>
 
   <script type="module" src="./script/script.js"></script>
 </body>

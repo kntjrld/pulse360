@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>Login - Pulse360</title>
-    
-    <link rel="icon" type="image/png" href="./images/pulse.png" />
-    
-    <link rel="stylesheet" href="./css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Pulse360</title>
+  <link rel="icon" type="image/png" href="./images/pulse.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div id="login-view" class="view">
-        <div class="card">
-            <img src="./images/beat.png" alt="Incident Icon"/>
-            <h2>Hello</h2>
-            <p>Welcome to <strong>Pulse360</strong><br>Report incidents instantly</p>
-            <button id="googleLogin">
-                <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google Logo"/>
-                Sign in with Google
-            </button>
-            <div class="login-options">
-                <input type="checkbox" id="stayLoggedIn">
-                <label for="stayLoggedIn">Keep me logged-in</label>
-            </div>
-        </div>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center min-h-screen font-sans">
+
+  <div class="bg-white shadow-lg rounded-2xl p-8 max-w-sm w-full text-center animate-fadeIn">
+    <img src="./images/beat.png" alt="Incident Icon" class="w-24 mx-auto mb-4">
+    <h2 class="text-2xl font-bold text-gray-800 mb-2">Hello!</h2>
+    <p class="text-gray-600 mb-6">Welcome to <span class="font-semibold text-indigo-600">Pulse360</span><br>Report incidents instantly</p>
+
+    <button id="googleLogin" class="flex items-center justify-center gap-3 bg-white border border-gray-300 rounded-lg px-4 py-2 w-full shadow hover:shadow-md transition-all hover:bg-gray-50">
+      <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google Logo" class="w-6 h-6">
+      <span class="font-medium text-gray-700">Sign in with Google</span>
+    </button>
+
+    <div class="mt-4 flex items-center justify-center gap-2 text-gray-500 text-sm">
+      <input type="checkbox" id="stayLoggedIn" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+      <label for="stayLoggedIn">Keep me logged in</label>
     </div>
-    <script type="module" src="./script/script.js"></script>
+
+    <p class="mt-6 text-xs text-gray-400">© 2026 Pulse360. All rights reserved.</p>
+  </div>
+
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.5s ease forwards;
+    }
+  </style>
+
+  <script type="module" src="./script/script.js"></script>
 </body>
 </html>
