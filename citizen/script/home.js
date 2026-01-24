@@ -72,45 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // // --- Report Submission ---
-    // sendReportBtn.addEventListener('click', async () => {
-    //     const file = cameraInput.files[0];
-    //     if (!userLocation) {
-    //         alert("Please wait for your location to be detected or enable it in your browser settings.");
-    //         return;
-    //     }
-    //     if (!file) {
-    //         alert("Please capture an image before sending a report.");
-    //         return;
-    //     }
-
-    //     try {
-    //         // 1. Upload image to Firebase Storage
-    //         const storageRef = ref(storage, `reports/${Date.now()}-${file.name}`);
-    //         await uploadBytes(storageRef, file);
-    //         const imageURL = await getDownloadURL(storageRef);
-
-    //         // 2. Create Firestore document
-    //         const report = {
-    //             userId: auth.currentUser.email,
-    //             location: userLocation,
-    //             imageURL: imageURL,
-    //             timestamp: serverTimestamp(),
-    //             status: "pending"
-    //         };
-
-    //         await addDoc(collection(db, "reports"), report);
-    //         alert("Report sent successfully! Thank you.");
-
-    //         cameraInput.value = "";
-    //         imagePreview.innerHTML = "";
-    //         sendReportBtn.style.display = 'none';
-
-    //         } catch (err) {
-    //         console.error("Error submitting report:", err);
-    //         alert("Failed to submit report. Check console for details.");
-    //     }
-    // });
+    // --- Report Submission ---
     sendReportBtn.addEventListener('click', async () => {
     try {
         console.log("Send report clicked");

@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pulse360 - PDRRMO</title>
 
   <link rel="icon" type="image/png" href="../images/pulse.png" />
-
-  <!-- your dashboard styles (relative to this file) -->
   <link rel="stylesheet" href="../css/home.css">
-
-  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
   <!-- Sidebar -->
   <div id="sidebar">
@@ -26,33 +25,61 @@
     </div>
 
     <ul class="sidebar-menu">
-      <li><a href="#" class="active"><img src="../images/dashboard.png" alt=""><span class="menu-text">Dashboard</span></a></li>
+      <li><a href="#" class="active"><img src="../images/dashboard.png" alt=""><span
+            class="menu-text">Dashboard</span></a></li>
       <li><a href="#"><img src="../images/reports.png" alt=""><span class="menu-text">Reports</span></a></li>
+      <li><a href="#"><i class="fa-solid fa-chart-column"></i><span class="menu-text">Statistics</span></a></li>
       <li><a href="#"><img src="../images/settings.png" alt=""><span class="menu-text">Settings</span></a></li>
     </ul>
 
     <div class="sidebar-footer">
-      <li><a href="#" id="logout-btn"><img src="../images/logout.png" alt=""><span class="menu-text">Logout</span></a></li>
+      <li><a href="#" id="logout-btn"><img src="../images/logout.png" alt=""><span class="menu-text">Logout</span></a>
+      </li>
     </div>
   </div>
 
   <!-- Overlay just for dimming -->
   <div id="overlay"></div>
 
-  <!-- Map container -->
-  <div id="map-container">
-    <div id="dashmap"></div>
-    <div id="searching-animation">
-      <div class="circle"></div>
-      <div class="circle"></div>
-      <div class="circle"></div>
+  <section id="dashboard" class="dashboard-section">
+    <!-- Map container -->
+    <div id="map-container">
+      <div id="dashmap"></div>
+      <div id="searching-animation">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <!-- Leaflet JS -->
+  <!-- reports section -->
+  <section id="reports-section" class="reports-section hidden">
+    <h2>Incident Reports</h2>
+    <div id="reports-list" class="reports-list">
+      <!-- Reports will be dynamically added here -->
+    </div>
+  </section>
+
+  <!-- statistics section -->
+  <section id="statistics-section" class="statistics-section hidden">
+    <h2>Statistics</h2>
+    <div id="stats-content" class="stats-content">
+      <!-- Statistics will be dynamically added here -->
+    </div>
+  </section>
+
+  <!-- settings section -->
+  <section id="settings-section" class="settings-section hidden">
+    <h2>Settings</h2>
+    <div id="settings-content" class="settings-content">
+      <!-- Settings will be dynamically added here -->
+    </div>
+  </section>
+
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-  <!-- Home JS -->
   <script type="module" src="../script/home.js"></script>
+  <script type="module" src="../script/navigation.js"></script>
 </body>
+
 </html>

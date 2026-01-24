@@ -8,7 +8,7 @@ async function redirectIfAdmin(user) {
   const tokenResult = await user.getIdTokenResult(true);
 
   console.log("Firebase ID Token:", tokenResult.token);
-  // await navigator.clipboard.writeText(tokenResult.token);
+  await navigator.clipboard.writeText(tokenResult.token);
 
   if (tokenResult.claims.admin) {
     showNotif("Login successful! Redirecting...", "success");
