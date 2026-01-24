@@ -49,6 +49,12 @@
       <span class="font-medium text-gray-700">Sign in with Google</span>
     </button>
 
+    <!-- navigate to /citizen page-->
+    <button id="citizenLogin"
+      class="mt-4 w-full bg-green-600 text-white font-medium py-2 rounded-lg shadow hover:bg-green-700 transition">
+      Go to Citizen Portal
+    </button>
+
     <p class="mt-6 text-xs text-gray-400">© 2026 Pulse360. All rights reserved.</p>
   </div>
 
@@ -72,5 +78,10 @@
 
   <script src="./script/customNotification.js"></script>
   <script type="module" src="./script/script.js"></script>
+  <script>
+    document.getElementById("citizenLogin").addEventListener("click", () => {
+      window.location.href = "../citizen/index.html";
+    });
+  </script>
 </body>
 </html>
