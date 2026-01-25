@@ -89,6 +89,19 @@
 
         <!-- Image Preview -->
         <div id="image-preview" class="rounded-xl overflow-hidden"></div>
+        <!-- Incident Type Selection -->
+        <div class="filter-container">
+          <label for="incidentTypeSelect">Incident Type:</label>
+          <select id="incidentTypeSelect">
+            <!-- select disabled-->
+            <option value="" disabled selected>Select an incident type</option>
+            <option value="Fire">Fire</option>
+            <option value="Flood">Flood</option>
+            <option value="Earthquake">Earthquake</option>
+            <option value="Accident">Accident</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
 
         <!-- Send Button -->
         <button id="sendReportBtn"

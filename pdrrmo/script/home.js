@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const sidebar = document.getElementById("sidebar");
   const toggleBtn = document.getElementById("toggle-btn");
   const logoutBtn = document.getElementById("logout-btn");
+  const section = document.querySelector("section");
 
   if (!sidebar) console.warn("Sidebar (#sidebar) not found.");
   if (!toggleBtn) console.warn("Toggle button (#toggle-btn) not found.");

@@ -17,6 +17,7 @@ const reportBtn = document.getElementById('reportIncident');
 const cameraInput = document.getElementById('cameraInput');
 const locationInfo = document.getElementById('locationInfo');
 const imagePreview = document.getElementById('image-preview');
+const incidentType = document.getElementById('incidentTypeSelect');
 const sendReportBtn = document.getElementById('sendReportBtn');
 const logoutBtn = document.getElementById('logoutBtn');
 
@@ -106,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 userId: auth.currentUser.email,
                 reportedBy: auth.currentUser.displayName,
                 location: userLocation,
+                incidentType: incidentType.value,
                 imageURL: imageURL,
                 timestamp: serverTimestamp(),
                 status: "pending"
