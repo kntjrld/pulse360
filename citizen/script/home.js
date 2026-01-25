@@ -95,6 +95,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            // incident type validation
+            if (!incidentType.value) {
+                showNotif("Please select an incident type.", "error");
+                return;
+            }
+
             const storageRef = ref(storage, `reports/${Date.now()}-${file.name}`);
             console.log("Uploading to storage:", storageRef.fullPath);
             await uploadBytes(storageRef, file);
@@ -120,6 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
             cameraInput.value = "";
             imagePreview.innerHTML = "";
             sendReportBtn.style.display = 'none';
+            incidentType.value = "";
 
         } catch (err) {
             console.error("Error submitting report:", err);
