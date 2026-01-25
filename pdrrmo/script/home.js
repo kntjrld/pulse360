@@ -131,4 +131,47 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // accessToken 
+  const accessToken = document.getElementById("accessToken");
+
+  onAuthStateChanged(auth, (user) => {
+    if (!user) {
+      accessToken.textContent = "Not signed in";
+      return;
+    }
+
+    user.getIdTokenResult(true)
+      .then((result) => {
+        accessToken.textContent = maskToken(result.token);
+        accessToken.dataset.fullToken = result.token;
+      })
+      .catch((err) => {
+        console.error("Error fetching token:", err);
+        accessToken.textContent = "Error fetching token";
+      });
+  });
+
+  function maskToken(token) {
+    if (!token) return "";
+    return token.slice(0, 8) + "••••••••••••••••" + token.slice(-6);
+  }
+
+  const copyBtn = document.getElementById("copyTokenBtn");
+
+  copyBtn?.addEventListener("click", async () => {
+    const token = accessToken.dataset.fullToken;
+    if (!token) return;
+
+    try {
+      await navigator.clipboard.writeText(token);
+      copyBtn.innerHTML = `<i class="fa-solid fa-check"></i>`;
+      setTimeout(() => {
+        copyBtn.innerHTML = `<i class="fa-regular fa-copy"></i>`;
+      }, 1200);
+    } catch (err) {
+      showNotif("Failed to copy token: " + err.message, "error");
+      console.error("Copy failed", err);
+    }
+  });
 });

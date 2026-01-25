@@ -1,0 +1,120 @@
+.settings-nav {
+    display: flex;
+    gap: 24px;
+    border-bottom: 1px solid #e5e7eb;
+    margin-bottom: 24px;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.settings-tab {
+    position: relative;
+    padding: 12px 4px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.settings-tab:hover {
+    color: #374151;
+}
+
+.settings-tab.active {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.settings-tab.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 2px;
+    background-color: #2563eb;
+    border-radius: 2px;
+}
+
+/* access key */
+.access-token-display {
+    margin-top: 24px;
+    font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+.access-token-display p {
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #374151;
+}
+
+/* Token container */
+.token-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 12px 14px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus/hover feel like Firebase */
+.token-box:hover {
+    border-color: #3b82f6;
+}
+
+/* Token text */
+#accessToken {
+    font-family: "JetBrains Mono", "Courier New", monospace;
+    font-size: 13px;
+    color: #111827;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Copy button */
+.copy-token-btn {
+    background: transparent;
+    border: none;
+    padding: 6px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #6b7280;
+    transition: background 0.15s ease, color 0.15s ease, transform 0.1s ease;
+}
+
+.copy-token-btn:hover {
+    background: #e5e7eb;
+    color: #2563eb;
+    transform: scale(1.05);
+}
+
+.copy-token-btn:active {
+    transform: scale(0.95);
+}
+
+.copy-token-btn i {
+    font-size: 16px;
+}
+
+/* Mobile friendly */
+@media (max-width: 480px) {
+    .token-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .copy-token-btn {
+        align-self: flex-end;
+    }
+}

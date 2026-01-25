@@ -9,6 +9,7 @@
   <link rel="icon" type="image/png" href="../images/pulse.png" />
   <link rel="stylesheet" href="../css/home.css">
   <link rel="stylesheet" href="../css/reports.css">
+  <link rel="stylesheet" href="../css/settings.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -46,7 +47,11 @@
 
   <!-- Overlay just for dimming -->
   <div id="overlay"></div>
-
+  <!-- Notification Banner -->
+  <div id="notifBanner"
+    class="fixed top-5 right-5 bg-emerald-500 text-white px-4 py-2 rounded-lg shadow-lg opacity-0 pointer-events-none transition-all duration-500 z-50">
+    <span id="notifMessage">This is a notification!</span>
+  </div>
   <section id="dashboard" class="dashboard-section">
     <!-- Map container -->
     <div id="map-container">
@@ -104,14 +109,41 @@
       </p>
     </header>
     <div id="settings-content" class="settings-content">
-      <!-- Settings will be dynamically added here -->
-    </div>
+      <div class="settings-nav">
+        <button class="settings-tab active" data-tab="user-info">Info</button>
+        <button class="settings-tab" data-tab="security">Users</button>
+        <button class="settings-tab" data-tab="access-key">Access Key</button>
+      </div>
+
+      <div class="settings-panels">
+        <div id="user-info" class="settings-panel active">
+          <h2>User Detail</h2>
+        </div>
+
+        <div id="security" class="settings-panel hidden">
+          <h2>Users Settings</h2>
+        </div>
+
+        <div id="access-key" class="settings-panel hidden">
+          <h2>Authentication</h2>
+          <div id="access-token-display" class="access-token-display">
+            <p>Access Token:</p>
+            <div class="token-box">
+              <span id="accessToken"></span>
+              <button id="copyTokenBtn" class="copy-token-btn" title="Copy to clipboard">
+                <i class="fa-regular fa-copy"></i>
+              </button>
+            </div>
+          </div>
+        </div>
   </section>
 
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="../script/customNotification.js"></script>
   <script type="module" src="../script/home.js"></script>
   <script type="module" src="../script/navigation.js"></script>
   <script type="module" src="../script/reports.js"></script>
+  <script type="module" src="../script/settings.js"></script>
 </body>
 
 </html>
