@@ -107,4 +107,36 @@ router.post("/admin-reset-password", async (req, res) => {
   }
 });
 
+// reset non-admin password
+router.post("/reset-password", async (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({ message: "Email is required" });
+  }
+  try {
+    const resetLink = await admin.auth().generatePasswordResetLink(email);
+    const mailOptions = {
+      from: '"Support" <yourgmail@gmail.com>',
+      to: email,
+      subject: "Password Reset Link",
+      html: `
+        <p>Hello,</p>
+        <p>Click the link below to reset your password:</p>
+        <a href="${resetLink}">Reset Password</a>
+        <p>This link expires in 1 hour.</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
+    return res.json({
+      message: "Password reset link generated",
+    });
+  } catch (err) {
+    return res.status(404).json({
+      message: "User not found or error occurred",
+    });
+  }
+});
+
 export default router;
