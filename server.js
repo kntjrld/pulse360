@@ -26,8 +26,11 @@ app.use('/citizen', express.static(path.join(__dirname, 'citizen')));
 app.use('/pdrrmo', express.static(path.join(__dirname, 'pdrrmo')));
 app.use('/config', express.static(path.join(__dirname, 'config')));
 
+// Root
+app.use(express.static(path.join(__dirname)));
+
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'citizen', 'index.html'));
+    res.sendFile(path.join(__dirname, 'login.html'));
 });
 
 app.get('/health', (req, res) => {
@@ -43,11 +46,9 @@ app.use((err, req, res, next) => {
 });
 
 app.use((req, res) => {
-    res.status(404).json({ error: 'Route not found' });
+    res.status(404).sendFile(path.join(__dirname, '404.html'));
 });
 
 app.listen(PORT, () => {
     console.log(`Pulse360 server is running on http://localhost:${PORT}`);
-    console.log(`Citizen module: http://localhost:${PORT}/citizen`);
-    console.log(`PDRRMO module: http://localhost:${PORT}/pdrrmo`);
 });
