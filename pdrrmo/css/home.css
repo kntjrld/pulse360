@@ -233,11 +233,29 @@ section {
   left: 8%;
   width: 90%;
   margin-top: 20px;
+  transition: left 0.25s ease, width 0.25s ease;
+}
+
+#sidebar.expanded~section {
+  left: 270px;
+  width: calc(100% - 270px);
 }
 
 /* === Mobile expand width === */
 @media (max-width: 520px) {
   #sidebar.expanded {
     width: 280px;
+  }
+
+  section {
+    left: 20%;
+    width: 100%;
+  }
+
+  #reports-section table.dataTable th:nth-child(3),
+  #reports-section table.dataTable td:nth-child(3),
+  #reports-section table.dataTable th:nth-child(5),
+  #reports-section table.dataTable td:nth-child(5) {
+    display: none;
   }
 }

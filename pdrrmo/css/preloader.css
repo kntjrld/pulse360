@@ -1,0 +1,55 @@
+:root{
+  --preloader-bg: #ffffff;
+  --preloader-color: #25b09b;
+}
+
+.preloader-overlay{
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--preloader-bg);
+  z-index: 9999;
+  transition: opacity .3s ease, visibility .3s ease;
+  opacity: 1;
+  visibility: visible;
+}
+
+.preloader-overlay.hidden{
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader {
+  width: 56px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--preloader-color);
+  --_m:
+    conic-gradient(#0000 10%, #000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+  mask: var(--_m);
+  -webkit-mask-composite: source-out;
+  mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+
+@keyframes l3 {
+  to { transform: rotate(1turn); }
+}
+
+/* Optional: small central dot inside the loader */
+.loader::after{
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  margin: auto;
+  transform: translateY(-2px);
+}

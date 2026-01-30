@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../css/home.css">
   <link rel="stylesheet" href="../css/reports.css">
   <link rel="stylesheet" href="../css/settings.css">
+  <link rel="stylesheet" href="../css/preloader.css">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -20,6 +21,10 @@
 </head>
 
 <body>
+  <!-- Preloader -->
+  <div id="preloader" class="preloader-overlay" aria-hidden="false">
+    <div class="loader" aria-label="Loading"></div>
+  </div>
   <!-- Sidebar -->
   <div id="sidebar">
     <div class="sidebar-header">
@@ -137,6 +142,19 @@
           </div>
         </div>
   </section>
+  <script>
+    (function () {
+      const preloader = document.getElementById('preloader');
+      function hidePreloader() {
+        if (!preloader) return;
+        preloader.classList.add('hidden');
+        setTimeout(() => { try { preloader.remove(); } catch (e) { } }, 500);
+      }
+      if (document.readyState === 'complete') hidePreloader();
+      else window.addEventListener('load', hidePreloader);
+      setTimeout(hidePreloader, 6000);
+    })();
+  </script>
 
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="../script/customNotification.js"></script>

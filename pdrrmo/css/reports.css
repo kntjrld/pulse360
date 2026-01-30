@@ -141,3 +141,55 @@ table.dataTable tbody td {
 table th {
     text-transform: capitalize !important;
 }
+
+
+@media (max-width: 912px) {
+    .dataTables_wrapper {
+        padding: 16px;
+    }
+
+    table.dataTable thead th,
+    table.dataTable tbody td {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .dataTables_wrapper {
+        padding: 16px;
+    }
+
+    table.dataTable thead th,
+    table.dataTable tbody td {
+        padding: 12px;
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width: 520px) {
+    .dataTables_wrapper {
+        padding: 14px;
+    }
+
+    table.dataTable thead th,
+    table.dataTable tbody td {
+        padding: 10px;
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width: 380px) {
+    .dataTables_wrapper {
+        padding: 10px;
+    }
+
+    table.dataTable thead th,
+    table.dataTable tbody td {
+        padding: 8px;
+        font-size: 11px;
+    }
+}
