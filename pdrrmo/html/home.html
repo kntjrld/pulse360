@@ -142,20 +142,7 @@
           </div>
         </div>
   </section>
-  <script>
-    (function () {
-      const preloader = document.getElementById('preloader');
-      function hidePreloader() {
-        if (!preloader) return;
-        preloader.classList.add('hidden');
-        setTimeout(() => { try { preloader.remove(); } catch (e) { } }, 500);
-      }
-      if (document.readyState === 'complete') hidePreloader();
-      else window.addEventListener('load', hidePreloader);
-      setTimeout(hidePreloader, 6000);
-    })();
-  </script>
-
+  <script src="../script/preloader.js"></script>
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   <script src="../script/customNotification.js"></script>
   <script type="module" src="../script/home.js"></script>
