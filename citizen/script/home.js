@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if the user is authenticated; if not, redirect to login
     onAuthStateChanged(auth, (user) => {
         if (!user) {
-            window.location.href = "../login.html";
+            window.location.href = "/citizen/login.html";
         } else {
             getGeolocation();
         }
@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     logoutBtn.addEventListener('click', () => {
         signOut(auth)
             .then(() => {
-                window.location.href = "../login.html";
+                window.location.href = "/citizen/login.html";
             })
             .catch((error) => {
                 console.error("Logout error:", error);

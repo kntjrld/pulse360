@@ -25,7 +25,6 @@ app.use("/api/admin", adminRoutes);
 app.use('/citizen', express.static(path.join(__dirname, 'citizen')));
 app.use('/pdrrmo', express.static(path.join(__dirname, 'pdrrmo')));
 app.use('/config', express.static(path.join(__dirname, 'config')));
-app.use('/', express.static(path.join(__dirname, 'public')));
 
 // Root
 app.use(express.static(path.join(__dirname)));

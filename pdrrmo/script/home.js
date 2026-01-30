@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       signOut(auth)
         .then(() => {
           console.log("Signed out");
-          window.location.href = "../login.html";
+          window.location.href = "/pdrrmo/login.html";
         })
         .catch((err) => {
           console.error("Sign out error:", err);
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       onAuthStateChanged(auth, (user) => {
         if (!user) {
-          window.location.href = "../login.html";
+          window.location.href = "/pdrrmo/login.html";
         }
       });
     } catch (err) {
