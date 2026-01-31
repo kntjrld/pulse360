@@ -38,15 +38,15 @@ pulse360/
 ├── package.json           # Node.js dependencies and scripts
 ├── .env                   # Environment variables (create this)
 ├── citizen/              # Citizen module (static files)
-│   ├── index.html
+│   ├── login.html
 │   ├── css/
-│   ├── html/
+│   ├── page/
 │   ├── images/
 │   └── script/
 └── pdrrmo/               # PDRRMO module (static files)
-    ├── index.html
+    ├── login.html
     ├── css/
-    ├── html/
+    ├── page/
     ├── images/
     └── script/
 ```
