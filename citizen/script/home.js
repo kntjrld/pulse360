@@ -1,5 +1,4 @@
 // home.js (for the dashboard)
-console.log("home.js loaded");
 import { auth, db, storage } from "/config/firebase-config.js";
 import { signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
 import {
@@ -103,7 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const storageRef = ref(storage, `reports/${Date.now()}-${file.name}`);
             console.log("Uploading to storage:", storageRef.fullPath);
-            await uploadBytes(storageRef, file);
+            const metadata = { customMetadata: { userEmail: auth.currentUser.email } };
+            await uploadBytes(storageRef, file, metadata);
 
             const imageURL = await getDownloadURL(storageRef);
             console.log("Image URL:", imageURL);
@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 location: userLocation,
                 incidentType: incidentType.value,
                 imageURL: imageURL,
+                storagePath: storageRef.fullPath,
                 timestamp: serverTimestamp(),
                 status: "pending"
             };

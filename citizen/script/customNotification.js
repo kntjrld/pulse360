@@ -34,3 +34,22 @@ function showNotif(message, type = "success") {
         banner.classList.remove("bg-emerald-500", "bg-red-500", "bg-yellow-500", "text-black", "bg-gray-800");
     }, 5000);
 }
+
+function openDialog(message, onConfirm) {
+    const dialog = document.getElementById("confirm-dialog");
+    const msgEl = document.getElementById("dialog-message");
+    const confirmBtn = document.getElementById("confirm-btn");
+    const cancelBtn = document.getElementById("cancel-btn");
+
+    msgEl.textContent = message;
+    dialog.classList.remove("hidden");
+
+    confirmBtn.onclick = () => {
+        onConfirm();
+        dialog.classList.add("hidden");
+    };
+
+    cancelBtn.onclick = () => {
+        dialog.classList.add("hidden");
+    };
+}
