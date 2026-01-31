@@ -2,3 +2,5 @@
 node_modules/
 test-env.js
 config/serviceAccountKey.json
+.vercel
+.env*.local

@@ -7,15 +7,17 @@
   <title>Pulse360 - Citizen</title>
 
   <link rel="icon" type="image/png" href="../images/pulse.png" />
-
-  <!-- Tailwind CDN -->
+  <link rel="stylesheet" href="../css/preloader.css" />
   <script src="https://cdn.tailwindcss.com"></script>
-
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 
 <body class="bg-gray-100 min-h-screen">
+  <!-- Preloader -->
+  <div id="preloader" class="preloader-overlay" aria-hidden="false">
+    <div class="loader" aria-label="Loading"></div>
+  </div>
 
   <!-- Top Navigation -->
   <nav class="bg-white shadow-sm fixed top-0 inset-x-0 z-50">
@@ -182,6 +184,7 @@
     <!-- Profile -->
     <section id="profileSection" class="hidden">...</section>
   </main>
+  <script src="../script/preloader.js"></script>
   <script src="../script/customNotification.js"></script>
   <script type="module" src="../script/home.js"></script>
   <script src="../script/navigation.js"></script>

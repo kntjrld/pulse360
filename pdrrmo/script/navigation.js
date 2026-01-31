@@ -7,26 +7,45 @@ document.addEventListener("DOMContentLoaded", () => {
     settings: document.getElementById("settings-section"),
   };
 
+  // Function to show a specific section
+  const showSection = (sectionName) => {
+    menuLinks.forEach(l => l.classList.remove("active"));
+
+    Object.values(sections).forEach(section => {
+      section.classList.add("hidden");
+    });
+
+    if (sections[sectionName]) {
+      sections[sectionName].classList.remove("hidden");
+
+      menuLinks.forEach(link => {
+        const text = link.querySelector(".menu-text")?.textContent.toLowerCase() || "";
+        if (text.includes(sectionName)) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    // Save the current section to localStorage
+    localStorage.setItem("currentPdrrmoSection", sectionName);
+  };
+
   menuLinks.forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
 
-      // Remove active class from all links
-      menuLinks.forEach(l => l.classList.remove("active"));
-      link.classList.add("active");
-
-      // Hide all sections
-      Object.values(sections).forEach(section => {
-        section.classList.add("hidden");
-      });
-
-      // Determine which section to show
       const text = link.querySelector(".menu-text").textContent.toLowerCase();
 
-      if (text.includes("dashboard")) sections.dashboard.classList.remove("hidden");
-      if (text.includes("reports")) sections.reports.classList.remove("hidden");
-      if (text.includes("statistics")) sections.statistics.classList.remove("hidden");
-      if (text.includes("settings")) sections.settings.classList.remove("hidden");
+      let sectionName = "dashboard";
+      if (text.includes("reports")) sectionName = "reports";
+      if (text.includes("statistics")) sectionName = "statistics";
+      if (text.includes("settings")) sectionName = "settings";
+
+      showSection(sectionName);
     });
   });
+
+  // Restore the last viewed section from localStorage
+  const lastSection = localStorage.getItem("currentPdrrmoSection") || "dashboard";
+  showSection(lastSection);
 });
