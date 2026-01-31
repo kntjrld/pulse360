@@ -10,53 +10,86 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gradient-to-br from-gray-50 to-indigo-100 flex items-center justify-center min-h-screen font-sans">
+<body class="bg-white">
   <!-- Notification Banner -->
   <div id="notifBanner"
     class="fixed top-5 right-5 bg-emerald-500 text-white px-4 py-2 rounded-lg shadow-lg opacity-0 pointer-events-none transition-all duration-500 z-50">
     <span id="notifMessage">This is a notification!</span>
   </div>
 
-  <div class="bg-white shadow-xl rounded-2xl p-8 max-w-sm w-full text-center animate-fadeIn">
-    <img src="./images/logo.png" alt="Logo" class="w-20 mx-auto mb-4">
-
-    <h2 class="text-2xl font-bold text-gray-800 mb-2">Responder Portal</h2>
-    <p class="text-gray-600 mb-6">Sign in to manage incidents</p>
-
-    <input type="email" id="username" placeholder="Email" required
-      class="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
-
-    <input type="password" id="password" placeholder="Password" required
-      class="w-full mb-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
-
-    <a href="#" id="forgotPassword" class="text-sm text-indigo-600 hover:underline mb-4 inline-block">Forgot
-      password?</a>
-
-    <button id="emailSignIn"
-      class="w-full bg-indigo-600 text-white font-medium py-2 rounded-lg shadow hover:bg-indigo-700 transition mb-4">
-      Sign In
-    </button>
-
-    <div class="flex items-center my-4 text-gray-400">
-      <span class="flex-grow border-t border-gray-300"></span>
-      <span class="mx-2 text-sm">OR</span>
-      <span class="flex-grow border-t border-gray-300"></span>
+  <!-- Navigation -->
+  <nav class="fixed w-full bg-gray-100 backdrop-blur-lg z-40 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+      <div class="flex items-center gap-3">
+        <img src="../citizen/images/pulse.png" alt="Pulse360" class="h-10">
+        <span class="font-bold text-xl text-gray-900">Pulse360</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="../index.html" class="text-gray-600 hover:text-gray-900 transition">Home</a>
+      </div>
     </div>
+  </nav>
 
-    <button id="googleLogin"
-      class="flex items-center justify-center gap-3 bg-white border border-gray-300 rounded-lg px-4 py-2 w-full shadow hover:shadow-md transition hover:bg-gray-50">
-      <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google Logo" class="w-6 h-6">
-      <span class="font-medium text-gray-700">Sign in with Google</span>
-    </button>
+  <div class="min-h-screen pt-24 pb-20 flex items-center justify-center bg-gradient-to-br from-gray-50 to-indigo-100">
+    <div class="bg-white shadow-xl rounded-2xl p-8 max-w-sm w-full text-center animate-fadeIn">
+      <img src="./images/logo.png" alt="Logo" class="w-20 mx-auto mb-4">
 
-    <!-- navigate to /citizen page-->
-    <button id="citizenLogin"
+      <h2 class="text-2xl font-bold text-gray-800 mb-2">Responder Portal</h2>
+      <p class="text-gray-600 mb-6">Sign in to manage incidents</p>
+
+      <input type="email" id="username" placeholder="Email" required
+        class="w-full mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+
+      <input type="password" id="password" placeholder="Password" required
+        class="w-full mb-2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500 outline-none transition">
+
+      <a href="#" id="forgotPassword" class="text-sm text-indigo-600 hover:underline mb-4 inline-block">Forgot
+        password?</a>
+
+      <button id="emailSignIn"
+        class="w-full bg-indigo-600 text-white font-medium py-2 rounded-lg shadow hover:bg-indigo-700 transition mb-4">
+        Sign In
+      </button>
+
+      <div class="flex items-center my-4 text-gray-400">
+        <span class="flex-grow border-t border-gray-300"></span>
+        <span class="mx-2 text-sm">OR</span>
+        <span class="flex-grow border-t border-gray-300"></span>
+      </div>
+
+      <button id="googleLogin"
+        class="flex items-center justify-center gap-3 bg-white border border-gray-300 rounded-lg px-4 py-2 w-full shadow hover:shadow-md transition hover:bg-gray-50">
+        <img src="https://img.icons8.com/color/48/google-logo.png" alt="Google Logo" class="w-6 h-6">
+        <span class="font-medium text-gray-700">Sign in with Google</span>
+      </button>
+
+      <!-- navigate to /citizen page-->
+      <!-- <button id="citizenLogin"
       class="mt-4 w-full bg-green-600 text-white font-medium py-2 rounded-lg shadow hover:bg-green-700 transition">
       Go to Citizen Portal
-    </button>
+    </button> -->
 
-    <p class="mt-6 text-xs text-gray-400">© 2026 Pulse360. All rights reserved.</p>
+      <p class="mt-6 text-xs text-gray-400">© 2026 Pulse360. All rights reserved.</p>
+    </div>
   </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div>
+          <div class="flex items-center gap-2 mb-4">
+            <img src="../citizen/images/pulse.png" alt="Pulse360" class="h-8 filter brightness-0 invert">
+            <span class="font-bold text-white">Pulse360</span>
+          </div>
+          <p class="text-sm">Integrated Disaster Response Management</p>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm">© 2026 Pulse360. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 
   <style>
     @keyframes fadeIn {
@@ -78,10 +111,11 @@
 
   <script src="./script/customNotification.js"></script>
   <script type="module" src="./script/script.js"></script>
-  <script>
+  <!-- <script>
     document.getElementById("citizenLogin").addEventListener("click", () => {
       window.location.href = "../citizen/login.html";
     });
-  </script>
+  </script> -->
 </body>
+
 </html>
