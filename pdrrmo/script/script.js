@@ -9,7 +9,7 @@ async function redirectIfAdmin(user) {
 
   if (tokenResult.claims.admin) {
     showNotif("Login successful! Redirecting...", "success");
-    window.location.href = "./html/home.html";
+    window.location.href = "./page/home.html";
   } else {
     showNotif("Access denied. Admins only.", "error");
     await auth.signOut();

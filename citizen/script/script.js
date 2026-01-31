@@ -5,7 +5,7 @@ import { signInWithPopup, onAuthStateChanged, setPersistence, browserSessionPers
 // Check authentication state to redirect the user if they're already logged in
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        window.location.href = "./html/home.html";
+        window.location.href = "./page/home.html";
     }
 });
 
