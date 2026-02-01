@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const marker = L.marker([lat, lng], { icon: pulseIcon, title: report.classification || "Incident" }).addTo(map);
 
           marker.bindPopup(`
-            <strong>Reported by:</strong> ${report.userId}<br>
+            <strong>Reported by:</strong> ${report.reportedBy}<br>
             <img src="${report.imageURL}" style="width:120px;height:auto;"><br>
             <strong>Status:</strong> ${report.status}<br>
             <strong>Classification:</strong> ${report.classification || "Pending"}

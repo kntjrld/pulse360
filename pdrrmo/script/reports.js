@@ -55,7 +55,7 @@ async function loadReports() {
         <td>${statusBadge(r.status)}</td>
         <td>${lastUpdated}</td>
         <td>${r.incidentType || "-"}</td>
-        <td>${r.userId || "-"}</td>
+        <td>${r.reportedBy || "-"}</td>
         <td>${docLink}</td>
       </tr>
     `;
