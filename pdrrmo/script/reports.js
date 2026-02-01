@@ -56,6 +56,7 @@ async function loadReports() {
         <td>${lastUpdated}</td>
         <td>${r.incidentType || "-"}</td>
         <td>${r.reportedBy || "-"}</td>
+        <td>${r.contactNumber || r.userId || "-"}</td>
         <td>${docLink}</td>
       </tr>
     `;
