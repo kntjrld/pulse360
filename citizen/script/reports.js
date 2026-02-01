@@ -76,21 +76,21 @@ async function loadUserReports() {
                             </span>
                         </div>
                     </div>
-                            <div class="flex flex-col items-end gap-3">
-                            ${report.location ? `
-                                <a href="https://www.google.com/maps/search/?api=1&query=${report.location.latitude},${report.location.longitude}"
-                                   target="_blank" rel="noopener noreferrer"
-                                   class="inline-flex items-center justify-center w-28 px-3 py-2 bg-blue-50 text-blue-700 rounded-md text-center text-sm hover:bg-blue-100">
-                                    View on Map
-                                </a>
-                            ` : `
-                                <button class="inline-flex items-center justify-center w-28 px-3 py-2 bg-gray-100 text-gray-400 rounded-md text-center text-sm" disabled>No Location</button>
-                            `}
-                            <button data-id="${doc.id}"
-                                class="deleteBtn inline-flex items-center justify-center w-28 px-3 py-2 bg-red-50 text-red-700 rounded-md text-center text-sm hover:bg-red-100">
-                                Delete
-                            </button>
-                            </div>
+                                <div class="flex flex-row items-start gap-3 sm:flex-col sm:items-end">
+                                ${report.location ? `
+                                    <a href="https://www.google.com/maps/search/?api=1&query=${report.location.latitude},${report.location.longitude}"
+                                       target="_blank" rel="noopener noreferrer"
+                                       class="inline-flex items-center justify-center w-auto sm:w-28 px-3 py-2 bg-blue-50 text-blue-700 rounded-md text-center text-sm hover:bg-blue-100">
+                                        View on Map
+                                    </a>
+                                ` : `
+                                    <button class="inline-flex items-center justify-center w-auto sm:w-28 px-3 py-2 bg-gray-100 text-gray-400 rounded-md text-center text-sm" disabled>No Location</button>
+                                `}
+                                <button data-id="${doc.id}"
+                                    class="deleteBtn inline-flex items-center justify-center w-auto sm:w-28 px-3 py-2 bg-red-50 text-red-700 rounded-md text-center text-sm hover:bg-red-100">
+                                    Delete
+                                </button>
+                                </div>
                 </div>
             `;
 
@@ -114,17 +114,20 @@ async function loadUserReports() {
 }
 
 function updateStatusCounts(snapshot) {
+    let pendingCount = 0;
     let flaggedCount = 0;
     let progressCount = 0;
     let completedCount = 0;
 
     snapshot.forEach((doc) => {
         const status = doc.data().status || "pending";
-        if (status === "pending") flaggedCount++;
+        if (status === "pending") pendingCount++;
+        else if (status === "flagged") flaggedCount++;
         else if (status === "on-progress") progressCount++;
         else if (status === "completed") completedCount++;
     });
 
+    document.getElementById("pendingCount").textContent = pendingCount;
     document.getElementById("flaggedCount").textContent = flaggedCount;
     document.getElementById("progressCount").textContent = progressCount;
     document.getElementById("completedCount").textContent = completedCount;
