@@ -1,4 +1,17 @@
-// home.js (Responder Web App with real-time reports)
+/**
+ * home.js — Responder Web App dashboard script
+ *
+ * Purpose: initialize the Leaflet dashboard map, manage authentication
+ * and display real-time reports from Firestore with pulsing markers.
+ *
+ * Notes:
+ * - Dynamically loads `pdrrmo/css/pulse.css` for pulsing marker styles.
+ * - Uses Firebase Auth and Firestore onSnapshot for live updates.
+ *
+ * Author: Pulse360 team
+ * Created: 2026-02-01
+ */
+
 import { db, auth } from "/config/firebase-config.js";
 import { collection, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
 import { onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
@@ -91,15 +104,30 @@ document.addEventListener("DOMContentLoaded", () => {
       // initial animation
       document.getElementById('searching-animation').style.display = 'block';
 
-      // optional: testing marker
-      // L.marker([13.22, 120.60]).addTo(map).bindPopup("Mamburao, Occidental Mindoro").openPopup();
     }
   } catch (err) {
     console.error("Leaflet init error:", err);
   }
 
+  // Ensure pulse CSS is loaded from external file and helper
+  function ensurePulseCss() {
+    const href = '/pdrrmo/css/pulse.css';
+    if (document.querySelector(`link[href="${href}"]`)) return;
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = href;
+    document.head.appendChild(link);
+  }
+
+  ensurePulseCss();
+
+  function createPulseIcon(size = 24) {
+    const html = `<div class="pulse-icon" style="width:${size}px;height:${size}px"><div class="dot"></div></div>`;
+    return L.divIcon({ className: '', html, iconSize: [size, size], iconAnchor: [size / 2, size / 2] });
+  }
+
   // --- Firestore Real-Time Reports ---
-  if (map) { // ensure map is initialized
+  if (map) {
     const reportsRef = collection(db, "reports");
     const q = query(reportsRef, orderBy("timestamp", "desc"));
 
@@ -109,8 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
           const report = change.doc.data();
           console.log("New report received:", report);
 
-          const { latitude, longitude } = report.location;
-          const marker = L.marker([latitude, longitude], { title: report.classification || "Incident" }).addTo(map);
+          const { latitude, longitude } = report.location || {};
+          const lat = latitude ?? 13.22;
+          const lng = longitude ?? 120.60;
+          const pulseIcon = createPulseIcon(34);
+          const marker = L.marker([lat, lng], { icon: pulseIcon, title: report.classification || "Incident" }).addTo(map);
 
           marker.bindPopup(`
             <strong>Reported by:</strong> ${report.userId}<br>
