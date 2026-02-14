@@ -1,0 +1,57 @@
+<section id="statistics" class="statistics-section">
+
+  <!-- Filters -->
+  <div class="stats-filters">
+    <div class="filter-group">
+      <label>Report Scope</label>
+      <select id="reportScope">
+        <option value="all">Display All</option>
+        <option value="municipality">Municipality</option>
+        <option value="barangay">Barangay</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label>Range</label>
+      <select id="reportRange">
+        <option value="all">Display All</option>
+        <option value="today">Today</option>
+        <option value="week">This Week</option>
+        <option value="month">This Month</option>
+        <option value="custom">Custom Range</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="stats-cards">
+
+    <div class="stat-card total">
+      <h3>Incident Report Total</h3>
+      <p id="incidentTotal">0</p>
+    </div>
+
+    <div class="stat-card fatal">
+      <h3>Fatal Casualties</h3>
+      <p id="fatalCount">0</p>
+    </div>
+
+    <div class="stat-card serious">
+      <h3>Serious Casualties</h3>
+      <p id="seriousCount">0</p>
+    </div>
+
+    <div class="stat-card slight">
+      <h3>Slight Casualties</h3>
+      <p id="slightCount">0</p>
+    </div>
+
+  </div>
+
+  <!-- Incident Type Chart -->
+  <div class="chart-box wide">
+    <h3>Incident Types</h3>
+    <canvas id="incidentTypeChart"></canvas>
+  </div>
+
+</section>

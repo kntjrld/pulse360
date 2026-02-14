@@ -1,0 +1,91 @@
+<div class="page-container">
+
+  <!-- SETTINGS SIDEBAR -->
+  <aside class="settings-sidebar">
+    <button class="settings-tab active" data-tab="responders">Responders</button>
+    <button class="settings-tab" data-tab="users">Users</button>
+    <button class="settings-tab" data-tab="account">Account Details</button>
+  </aside>
+
+  <!-- SETTINGS CONTENT -->
+  <main class="settings-main">
+
+    <!-- RESPONDERS PANEL -->
+    <div id="responders" class="settings-panel active">
+      <div class="settings-header-row">
+        <input type="text" class="settings-search" placeholder="Search responder...">
+        <button class="add-btn" id="openAddResponder">+</button>
+      </div>
+
+      <div class="responder-list">
+
+        <!-- SAMPLE UNITS (DEV MODE) -->
+        <div class="responder-card">
+          <div class="responder-icon red"></div>
+          <span>Bureau of Fire Protection</span>
+        </div>
+
+        <div class="responder-card">
+          <div class="responder-icon blue"></div>
+          <span>Philippine National Police</span>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- USERS PANEL -->
+    <div id="users" class="settings-panel hidden">
+      <h2>Users</h2>
+    </div>
+
+    <!-- ACCOUNT DETAILS PANEL -->
+    <div id="account" class="settings-panel hidden">
+      <h2>Account Details</h2>
+
+      <label>Access Token:</label>
+      <div class="token-box">
+        <span id="accessToken">eyJhbGci••••••••••••••••••••••••••••</span>
+        <button id="copyTokenBtn" class="copy-token-btn">
+          <i class="fa-regular fa-copy"></i>
+        </button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ADD RESPONDER MODAL -->
+<div id="addResponderModal" class="modal-overlay hidden">
+  <div class="modal-box">
+
+    <div class="modal-header">
+      <h2>Add Responder</h2>
+      <button id="closeAddResponder" class="close-btn">×</button>
+    </div>
+
+    <div class="logo-upload">
+      <label for="responderLogo">
+        <img id="logoPreview" src="https://via.placeholder.com/120" alt="Logo">
+      </label>
+      <input type="file" id="responderLogo" accept="image/*">
+    </div>
+
+    <div class="form-group">
+      <label>Responder Name</label>
+      <input type="text" id="responderName" placeholder="Enter responder name">
+    </div>
+
+    <div class="form-group">
+      <label>Email Address <span class="required">*</span></label>
+      <input type="email" id="responderEmail" placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+      <label>Contact Number</label>
+      <input type="text" id="responderContact" placeholder="Enter contact number">
+    </div>
+
+    <button class="save-btn" id="saveResponder">Save</button>
+
+  </div>
+</div>

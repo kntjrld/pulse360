@@ -1,4 +1,4 @@
-// home.js — Dashboard + Map Logic Only (Clean Version)
+// dashboard.js — SPA Dashboard (map + realtime reports + auto‑zoom + dark mode tiles)
 
 import { db, auth } from "/config/firebase-config.js";
 import {
@@ -14,11 +14,11 @@ let map = null;
 let hasIncidents = false;
 let pendingMarkers = [];
 
-let lightTiles = null;
-let darkTiles = null;
+let lightTiles = null;   // ⭐ NEW
+let darkTiles = null;    // ⭐ NEW
 
-export function initDashboard() {
-  console.log("Dashboard initialized");
+export function loadDashboard() {
+  console.log("dashboard.js: loadDashboard called");
 
   if (map) {
     map.remove();
@@ -48,7 +48,9 @@ function initMapAndRealtime() {
 
     map = L.map("dashmap", { preferCanvas: true }).setView([13.22, 120.60], 16);
 
-    /* TILE LAYERS */
+    /* ---------------------------------------------------------
+       ⭐ TILE LAYERS (LIGHT + DARK)
+    --------------------------------------------------------- */
     lightTiles = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: "© OpenStreetMap contributors",
@@ -62,13 +64,20 @@ function initMapAndRealtime() {
       }
     );
 
+    // Apply correct theme on load
     if (document.documentElement.classList.contains("dark")) {
       darkTiles.addTo(map);
     } else {
       lightTiles.addTo(map);
     }
 
-    window.addEventListener("theme-changed", () => switchMapTheme());
+    // Listen for theme changes
+    window.addEventListener("theme-changed", () => {
+      switchMapTheme();
+    });
+
+    const searching = document.getElementById("searching-animation");
+    if (searching) searching.style.display = "block";
 
   } catch (err) {
     console.error("Leaflet init error:", err);
@@ -91,7 +100,9 @@ function initMapAndRealtime() {
     });
   }
 
-  /* REALTIME REPORTS */
+  /* ---------------------------------------------------------
+     REALTIME REPORTS LISTENER
+  --------------------------------------------------------- */
   const reportsRef = collection(db, "reports");
   const q = query(reportsRef, orderBy("timestamp", "desc"));
 
@@ -127,6 +138,8 @@ function initMapAndRealtime() {
 
         if (!hasIncidents) {
           hasIncidents = true;
+          const searching = document.getElementById("searching-animation");
+          if (searching) searching.style.display = "none";
         }
       }
     });
@@ -138,18 +151,23 @@ function initMapAndRealtime() {
 }
 
 /* ---------------------------------------------------------
-   DARK MODE MAP SWITCHER
+   ⭐ DARK MODE MAP SWITCHER
 --------------------------------------------------------- */
 function switchMapTheme() {
   if (!map || !lightTiles || !darkTiles) return;
 
   const isDark = document.documentElement.classList.contains("dark");
 
+  // Remove both first (prevents duplicates)
   map.removeLayer(lightTiles);
   map.removeLayer(darkTiles);
 
-  if (isDark) darkTiles.addTo(map);
-  else lightTiles.addTo(map);
+  // Add correct layer
+  if (isDark) {
+    darkTiles.addTo(map);
+  } else {
+    lightTiles.addTo(map);
+  }
 }
 
 /* ---------------------------------------------------------
