@@ -5,6 +5,12 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import adminRoutes from "./config/admin.js";
 
+//cd "C:\pulse360-iota\pulse360"
+//git pull
+//git add .
+//git commit -m "message"
+//git push
+
 // env config
 dotenv.config();
 
